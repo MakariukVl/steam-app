@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || "8080";
 
 // static file serve
-const dirName = "dist";
+const dirName = "dist/steam-app";
 
 app.use(express.static(path.resolve(`${dirName}`)));
 
