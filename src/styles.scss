@@ -1,1 +1,149 @@
-/* You can add global styles to this file, and also import other style files */
+$accent: #6C69FF;
+$warn: #FF6F6F;
+$neutral: #F4F4F4;
+$light: #FFFFFF;
+$secondary-light: #BDBCFF;
+$dark: #000000;
+
+$main-font: 'Roboto', sans-serif;
+
+/* RESET STYLES */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+body {
+    line-height: 1;
+    box-sizing: border-box;
+}
+ol, ul {
+    list-style: none;
+    box-sizing: border-box;
+}
+blockquote, q {
+    quotes: none;
+    box-sizing: border-box;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-sizing: border-box;
+}
+
+/* Critical Styles */
+body {
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 400;
+  background-color: $neutral;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $main-font;
+    font-weight: 400;
+}
+
+h1, h2, h3 {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+button, input[type="button"], 
+input[type="submit"], input[type="reset"] {
+  background: $accent;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+input {
+  min-width: 200px;
+  min-height: 32px;
+  border: 0.5px solid $dark;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+label {
+  padding: 0px 4px;
+}
+
+nav {
+  & {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 20px;
+    background: $light;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  } 
+  a {
+    & {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 23px;
+      color: $dark;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: $dark;
+  margin: 16px;
+}
+
+main {
+  background: $light;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  margin: 120px;
+}
