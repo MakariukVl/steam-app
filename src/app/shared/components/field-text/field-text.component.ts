@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TextInputType } from '@shared/models/input-text-type';
 
 @Component({
   selector: 'app-field-text',
   templateUrl: './field-text.component.html',
-  styleUrls: ['./field-text.component.scss']
+  styleUrls: ['./field-text.component.scss'],
 })
 export class FieldTextComponent implements OnInit {
+  @Input() placeholder?: string;
+  @Input() type?: TextInputType;
+  @Input() id!: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    this.type = this.type || 'text';
+    this.placeholder = this.placeholder || 'Input Placeholder';
+    this.id = this.id || 'Input';
   }
-
 }

@@ -12,19 +12,20 @@ import { RangeLabeledFieldComponent } from './components/range-labeled-field/ran
 import { BlockFilterComponent } from './components/block-filter/block-filter.component';
 import { CardGameComponent } from './components/card-game/card-game.component';
 import { FormDataDrivenComponent } from './components/form-data-driven/form-data-driven.component';
+import { FieldTextLabeledComponent } from './components/field-text-labeled/field-text-labeled.component';
 
 
 
 @NgModule({
   declarations: [  
-    LabelComponent, FieldTextComponent, ButtonComponent, NavigationComponent, FormSearchComponent, CheckboxFieldComponent, RangeFieldComponent, RangeLabeledFieldComponent, BlockFilterComponent, CardGameComponent, FormDataDrivenComponent
+    LabelComponent, FieldTextComponent, ButtonComponent, NavigationComponent, FormSearchComponent, CheckboxFieldComponent, RangeFieldComponent, RangeLabeledFieldComponent, BlockFilterComponent, CardGameComponent, FormDataDrivenComponent, FieldTextLabeledComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule
   ],
   exports: [
-    NavigationComponent
+    ButtonComponent, NavigationComponent, FormSearchComponent, CheckboxFieldComponent, RangeFieldComponent, RangeLabeledFieldComponent, BlockFilterComponent, CardGameComponent, FormDataDrivenComponent, FieldTextLabeledComponent
   ]
 })
 export class SharedModule { }

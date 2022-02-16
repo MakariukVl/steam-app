@@ -1,13 +1,9 @@
-<!-- <nav>
-  <a routerLink="/login">*-*</a>
-  <a routerLink="/games">Games</a>
-  <a routerLink="/library">Library</a>
-  <a routerLink="/friends">Friends</a>
-  <a routerLink="/profile">Profile</a>
-</nav> -->
 <app-navigation [authorized]="false"></app-navigation>
 <main>
   <h1>Your Games Library</h1>
   <p>App-Component</p>
+  <app-field-text-labeled></app-field-text-labeled>
+  <app-field-text-labeled title="FirstName" type="text" placeholder="FirstName"></app-field-text-labeled>
+  <app-field-text-labeled title="Email" type="email" placeholder="Your Email"></app-field-text-labeled>
   <router-outlet></router-outlet>
 </main>
