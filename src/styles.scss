@@ -1,11 +1,4 @@
-$accent: #6C69FF;
-$warn: #FF6F6F;
-$neutral: #F4F4F4;
-$light: #FFFFFF;
-$secondary-light: #BDBCFF;
-$dark: #000000;
-
-$main-font: 'Roboto', sans-serif;
+@import 'src/app/shared/_variables.scss';
 
 /* RESET STYLES */
 html, body, div, span, applet, object, iframe,
@@ -63,14 +56,14 @@ table {
 
 /* Critical Styles */
 body {
-  font-family: $main-font;
+  font-family: var(--main-font);
   font-style: normal;
   font-weight: 400;
-  background-color: $neutral;
+  background-color: var(--neutral);
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: $main-font;
+    font-family: var(--main-font);
     font-weight: 400;
 }
 
@@ -80,7 +73,7 @@ h1, h2, h3 {
 
 button, input[type="button"], 
 input[type="submit"], input[type="reset"] {
-  background: $accent;
+  background: var(--accent);
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   padding: 8px 16px;
@@ -90,7 +83,7 @@ input[type="submit"], input[type="reset"] {
 input {
   min-width: 200px;
   min-height: 32px;
-  border: 0.5px solid $dark;
+  border: 0.5px solid var(--dark);
   box-sizing: border-box;
   border-radius: 4px;
 }
@@ -110,7 +103,7 @@ nav {
     align-items: center;
     gap: 20px;
     padding: 8px 20px;
-    background: $light;
+    background: var(--light);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   } 
   a {
@@ -120,12 +113,12 @@ nav {
       font-weight: normal;
       font-size: 20px;
       line-height: 23px;
-      color: $dark;
+      color: var(--dark);
       text-decoration: none;
     }
 
     &:hover {
-      color: $accent;
+      color: var(--accent);
     }
   }
 }
@@ -136,14 +129,15 @@ p {
   font-weight: normal;
   font-size: 13px;
   line-height: 15px;
-  color: $dark;
+  color: var(--dark);
   margin: 16px;
 }
 
 main {
-  background: $light;
+  background: var(--light);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   margin: 120px;
   padding: 20px 60px;
+  height: 5000px;
 }

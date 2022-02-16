@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppRoutingModule } from '@core/app-routing.module';
 import { LabelComponent } from './components/label/label.component';
 import { FieldTextComponent } from './components/field-text/field-text.component';
 import { ButtonComponent } from './components/button/button.component';
@@ -19,7 +20,11 @@ import { FormDataDrivenComponent } from './components/form-data-driven/form-data
     LabelComponent, FieldTextComponent, ButtonComponent, NavigationComponent, FormSearchComponent, CheckboxFieldComponent, RangeFieldComponent, RangeLabeledFieldComponent, BlockFilterComponent, CardGameComponent, FormDataDrivenComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
+  ],
+  exports: [
+    NavigationComponent
   ]
 })
 export class SharedModule { }

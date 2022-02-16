@@ -1,1 +1,9 @@
-<p>navigation works!</p>
+<nav class="navigation">
+  <a class="navigation__link" routerLink="#" fragment="">
+    <img src="assets/logo.svg">
+  </a>
+  <a class="navigation__link navigation__link_hover" routerLink="/games">Games</a>
+  <a class="navigation__link navigation__link_hover" routerLink="/library" *ngIf="authorized">Library</a>
+  <a class="navigation__link navigation__link_hover" routerLink="/friends" *ngIf="authorized">Friends</a>
+  <a class="navigation__link navigation__link_hover" routerLink="/profile" *ngIf="authorized">Profile</a>
+</nav>
