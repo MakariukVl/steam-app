@@ -3,7 +3,13 @@
     <img src="assets/logo.svg">
   </a>
   <a class="navigation__link navigation__link_hover" routerLink="/games">Games</a>
-  <a class="navigation__link navigation__link_hover" routerLink="/library" *ngIf="authorized">Library</a>
-  <a class="navigation__link navigation__link_hover" routerLink="/friends" *ngIf="authorized">Friends</a>
-  <a class="navigation__link navigation__link_hover" routerLink="/profile" *ngIf="authorized">Profile</a>
+
+  <!-- AuthStatus-based disabled links -->
+  <!-- For disabled links Guards needed (It is just visual, not behavior) -->
+  <a class="navigation__link navigation__link_hover" routerLink="/library"
+    [class.navigation__link_disabled]="!authorized">Library</a>
+  <a class="navigation__link navigation__link_hover" routerLink="/friends"
+    [class.navigation__link_disabled]="!authorized">Friends</a>
+  <a class="navigation__link navigation__link_hover" routerLink="/profile"
+    [class.navigation__link_disabled]="!authorized">Profile</a>
 </nav>

@@ -14,7 +14,7 @@ import { SharedModule } from '@shared/shared.module'; //temp debug
     BrowserModule,
     AppRoutingModule,
     PagesModule,
-    SharedModule //temp debug
+    SharedModule //temp debug (later moved to pages)
   ],
   providers: [],
   bootstrap: [AppComponent]

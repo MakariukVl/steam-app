@@ -26,5 +26,11 @@
     &_hover:hover {
       color: var(--accent);
     }
+
+    &_disabled {
+      color: var(--dark);
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
   }
 }
