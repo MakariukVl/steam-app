@@ -53,6 +53,10 @@ table {
     border-spacing: 0;
     box-sizing: border-box;
 }
+button, input[type="button"], 
+input[type="submit"], input[type="reset"] {
+  border: none;
+}
 
 /* Critical Styles */
 body {

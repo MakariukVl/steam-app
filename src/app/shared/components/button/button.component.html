@@ -1,1 +1,6 @@
-<p>button works!</p>
+<button class="button button_hover button_active" [ngClass]="{
+  'button_primary': colorScheme === 'primary', 
+  'button_secondary': colorScheme === 'secondary', 
+  'button_warning': colorScheme === 'warning'}">
+    <ng-content></ng-content>
+</button>

@@ -1,0 +1,47 @@
+@mixin primary {
+  color: var(--light);
+  background-color: var(--accent);
+}
+
+@mixin warning {
+  color: var(--light);
+  background-color: var(--warn);
+}
+
+@mixin secondary {
+  color: var(--accent);
+  background-color: var(--light);
+}
+
+.button {
+  & {
+    position: relative;
+    transition: top 1s ease-out 500ms,
+      filter 300ms ease-out;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    text-align: center;
+    padding: 8px 16px;
+  }
+  &_primary {
+    @include primary;
+  }
+  &_secondary {
+    @include secondary;
+  }
+  &_warning {
+    @include warning;
+  }
+  &_hover:hover {
+    top: -4px;
+  }
+  &_active:active {
+    filter: brightness(150%);
+  }
+}

@@ -1,0 +1,1 @@
+export type ButtonColorSchemas = 'primary' | 'secondary' | 'warning';

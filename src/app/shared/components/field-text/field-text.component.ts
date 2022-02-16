@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TextInputType } from '@shared/models/input-text-type';
+import { TextInputType } from '@shared/interfaces/input-text-type';
 
 @Component({
   selector: 'app-field-text',
@@ -8,6 +8,7 @@ import { TextInputType } from '@shared/models/input-text-type';
 })
 export class FieldTextComponent implements OnInit {
   @Input() placeholder?: string;
+  @Input() pattern?: string;
   @Input() type?: TextInputType;
   @Input() id!: string;
 
@@ -17,5 +18,6 @@ export class FieldTextComponent implements OnInit {
     this.type = this.type || 'text';
     this.placeholder = this.placeholder || 'Input Placeholder';
     this.id = this.id || 'Input';
+    this.pattern = this.pattern || '.*';
   }
 }
