@@ -11,5 +11,9 @@
   <app-button>MyButton</app-button>
   <app-block-filter></app-block-filter>
   <app-form-data-driven></app-form-data-driven>
+  <app-form-data-driven [formModel]="form" (submit)="values = $event"></app-form-data-driven>
+  <ng-container *ngFor="let value of values; let i = index">
+    <div>Value {{i}}: {{value}}</div>
+  </ng-container>
   <router-outlet></router-outlet>
 </main>

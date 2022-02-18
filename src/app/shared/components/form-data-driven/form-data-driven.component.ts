@@ -15,13 +15,15 @@ export class FormDataDrivenComponent implements OnInit {
 
   @Input() values: Array<string | null> = [];
   @Output() valuesChange = new EventEmitter<Array<string | null>>();
+  @Output() submit = new EventEmitter<Array<string | null>>();
 
   constructor() {}
 
   onSubmit(event: SubmitEvent) {
     event.preventDefault();
-    console.log(typeof event);
-    console.log(event);
+    this.submit.emit(this.values);
+    // console.log(typeof event);
+    // console.log(event);
     // TODO: Get Form data - DONE
     // TODO: REST API Call
     // SUGGESTIONS: ng-content for Inputs and other content
