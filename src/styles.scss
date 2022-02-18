@@ -84,12 +84,20 @@ input[type="submit"], input[type="reset"] {
   text-align: center;
 }
 
-input {
+input, input[type="text"], 
+input[type="email"], input[type="password"], 
+input[type="number"], input[type="tel"] {
   min-width: 200px;
   min-height: 32px;
   border: 0.5px solid var(--dark);
   box-sizing: border-box;
   border-radius: 4px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  min-width: fit-content;
+  width: 20px;
+  height: 20px;
 }
 
 label {

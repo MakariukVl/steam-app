@@ -1,1 +1,5 @@
-<p>checkbox-field works!</p>
+<div class="app-checkbox">
+  <input #checkbox type="checkbox" class="app-checkbox__checkbox" (change)="onChange(checkbox.checked)"
+    id={{generatedId}} [name]="name" [value]="value">
+  <label class="app-checkbox__label" for={{generatedId}}>{{labelText}}</label>
+</div>

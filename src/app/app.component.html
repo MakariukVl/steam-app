@@ -11,8 +11,10 @@
   <app-button>MyButton</app-button>
   <app-block-filter></app-block-filter>
   <app-form title="Profile" buttonText="Submit" (appSubmit)="onSubmit()">
-    <app-field-text-labeled title="FirstName" type="text" placeholder="FirstName" [(value)]="name"></app-field-text-labeled>
-    <app-field-text-labeled title="Email" type="email" placeholder="Your Email" [(value)]="email"></app-field-text-labeled>
+    <app-field-text-labeled title="FirstName" type="text" placeholder="FirstName" [(value)]="name">
+    </app-field-text-labeled>
+    <app-field-text-labeled title="Email" type="email" placeholder="Your Email" [(value)]="email">
+    </app-field-text-labeled>
     <app-field-text-labeled title="Age" type="number" placeholder="Your Age" [(value)]="age"></app-field-text-labeled>
   </app-form>
   <ng-container *ngIf="isSubmit">
@@ -21,5 +23,11 @@
     <div>Email: {{email}}</div>
     <div>Age: {{age}}</div>
   </ng-container>
+  <div>
+    <app-checkbox-field></app-checkbox-field><br />
+    <app-checkbox-field name="games" labelText="Action" value="action"></app-checkbox-field><br />
+    <app-checkbox-field name="games" labelText="Indie" value="indie"></app-checkbox-field><br />
+    <app-checkbox-field name="games" labelText="Adventure" value="adventure"></app-checkbox-field>
+  </div>
   <router-outlet></router-outlet>
 </main>
