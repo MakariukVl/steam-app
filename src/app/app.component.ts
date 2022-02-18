@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormField } from '@shared/interfaces/form-model';
 
 @Component({
   selector: 'app-root',
@@ -8,25 +7,20 @@ import { FormField } from '@shared/interfaces/form-model';
 })
 export class AppComponent {
   title = 'steam-app';
-  form = {
-    title: 'My Form',
-    buttonText: 'Submit',
-    fields: [
-      {
-        title: 'Name',
-        type: 'text',
-        placeholder: 'Your Name',
-      } as FormField,
-      {
-        title: 'Email',
-        type: 'email',
-        placeholder: 'Your Email',
-      } as FormField,
-    ],
-  };
-  values: Array<string | null> = [];
 
-  onSubmit(values: Array<string | null>) {
-    console.log(values.join(' '));
+  name: string | null = '';
+  email: string | null = '';
+  age: string | null = '';
+
+  isSubmit = false;
+
+  onSubmit() {
+    this.isSubmit = true;
+
+    console.group('User');
+    console.log(this.name);
+    console.log(this.email);
+    console.log(this.age);
+    console.groupEnd();
   }
 }

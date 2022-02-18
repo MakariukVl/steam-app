@@ -1,20 +1,10 @@
 <form class="app-form" (submit)="onSubmit($event)">
 
-  <ng-container *ngIf="formModel && formModel is FormModel; else: error">
+  <h2 class="app-form__title app-form__field">{{title}}</h2>
 
-    <h2 class="app-form__title app-form__field">{{formModel.title}}</h2>
+  <ng-content></ng-content>
 
-    <ng-container *ngFor="let fieldModel of formModel.fields; let i = index">
-      <app-field-text-labeled [title]="fieldModel.title" [pattern]="fieldModel.pattern" class="app-form__field"
-        [type]="fieldModel.type" [placeholder]="fieldModel.placeholder" (valueChange)="onEachChange($event, i)">
-      </app-field-text-labeled>
-    </ng-container>
-
-    <app-button colorScheme="primary" type="submit" class="app-form__field">{{formModel.buttonText}}</app-button>
-  </ng-container>
+  <app-button colorScheme="primary" type="submit" class="app-form__field">{{buttonText}}
+  </app-button>
 
 </form>
-
-<ng-template #error>
-  <p>Error! FormModel object have invalid format.</p>
-</ng-template>

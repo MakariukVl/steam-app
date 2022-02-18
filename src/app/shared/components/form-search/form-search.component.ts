@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormField, FormModel } from '@shared/interfaces/form-model';
 
 @Component({
   selector: 'app-form-search',

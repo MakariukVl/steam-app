@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ButtonColorSchemas } from '@shared/interfaces/button-color-schemas';
 import { ButtonType } from '@shared/interfaces/button-types';
 
@@ -10,6 +10,7 @@ import { ButtonType } from '@shared/interfaces/button-types';
 export class ButtonComponent implements OnInit {
   @Input() colorScheme?: ButtonColorSchemas;
   @Input() type?: ButtonType;
+  @Output() appClick = new EventEmitter();
 
   constructor() {}
 

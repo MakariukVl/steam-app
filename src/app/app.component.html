@@ -10,10 +10,16 @@
   <app-button colorScheme="secondary">Cancel</app-button>
   <app-button>MyButton</app-button>
   <app-block-filter></app-block-filter>
-  <app-form-data-driven></app-form-data-driven>
-  <app-form-data-driven [formModel]="form" (submit)="values = $event"></app-form-data-driven>
-  <ng-container *ngFor="let value of values; let i = index">
-    <div>Value {{i}}: {{value}}</div>
+  <app-form title="Profile" buttonText="Submit" (appSubmit)="onSubmit()">
+    <app-field-text-labeled title="FirstName" type="text" placeholder="FirstName" [(value)]="name"></app-field-text-labeled>
+    <app-field-text-labeled title="Email" type="email" placeholder="Your Email" [(value)]="email"></app-field-text-labeled>
+    <app-field-text-labeled title="Age" type="number" placeholder="Your Age" [(value)]="age"></app-field-text-labeled>
+  </app-form>
+  <ng-container *ngIf="isSubmit">
+    <h5>User</h5>
+    <div>Name: {{name}}</div>
+    <div>Email: {{email}}</div>
+    <div>Age: {{age}}</div>
   </ng-container>
   <router-outlet></router-outlet>
 </main>
