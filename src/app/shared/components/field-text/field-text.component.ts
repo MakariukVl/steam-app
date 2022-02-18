@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { TextInputType } from '@shared/interfaces/input-text-type';
 
 @Component({
@@ -12,6 +13,8 @@ export class FieldTextComponent implements OnInit {
   @Input() type?: TextInputType;
   @Input() id!: string;
 
+  @Output() valueChange = new EventEmitter<string | null>();
+
   constructor() {}
 
   ngOnInit(): void {
@@ -19,5 +22,9 @@ export class FieldTextComponent implements OnInit {
     this.placeholder = this.placeholder || 'Input Placeholder';
     this.id = this.id || 'Input';
     this.pattern = this.pattern || '.*';
+  }
+
+  onInput(value: string) {
+    this.valueChange.emit(value);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ButtonColorSchemas } from '@shared/interfaces/button-color-schemas';
+import { ButtonType } from '@shared/interfaces/button-types';
 
 @Component({
   selector: 'app-button',
@@ -8,10 +9,12 @@ import { ButtonColorSchemas } from '@shared/interfaces/button-color-schemas';
 })
 export class ButtonComponent implements OnInit {
   @Input() colorScheme?: ButtonColorSchemas;
+  @Input() type?: ButtonType;
 
   constructor() {}
 
   ngOnInit(): void {
     this.colorScheme = this.colorScheme || 'primary';
+    this.type = this.type || 'button';
   }
 }

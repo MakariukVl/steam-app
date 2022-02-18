@@ -1,1 +1,11 @@
 <p>block-filter works!</p>
+
+<ng-template #content [ngIf]="true" [ngIfElse]="loading">
+  <div class="lessons-list">
+      ...
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>

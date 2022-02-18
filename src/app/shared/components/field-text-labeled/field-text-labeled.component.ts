@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TextInputType } from '@shared/interfaces/input-text-type';
 
 @Component({
@@ -13,6 +13,14 @@ export class FieldTextLabeledComponent implements OnInit {
   @Input() pattern?: string;
   @Input() type?: TextInputType;
   @Input() placeholder?: string;
+
+  @Input() value: string | null = '';
+  @Output() valueChange = new EventEmitter<string | null>();
+
+  onChange(inputValue: string | null) {
+    this.value = inputValue;
+    this.valueChange.emit(inputValue);
+  }
 
   constructor() { }
 
