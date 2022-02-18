@@ -2,7 +2,7 @@
 
   <ng-container *ngIf="formModel && formModel is FormModel; else: error">
 
-    <h2 class="app-form__title">{{formModel.title}}</h2>
+    <h2 class="app-form__title app-form__field">{{formModel.title}}</h2>
 
     <ng-container *ngFor="let fieldModel of formModel.fields; let i = index">
       <app-field-text-labeled [title]="fieldModel.title" [pattern]="fieldModel.pattern" class="app-form__field"
