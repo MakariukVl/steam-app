@@ -1,2 +1,9 @@
-<input #field class="field-text" (input)="onInput(field.value)" id={{id}} type={{type}} placeholder={{placeholder}}
-  pattern={{pattern}}>
+<ng-container *ngIf="required; else notRequired">
+  <input #field class="field-text" (input)="onInput(field.value)" id={{id}} type={{type}} placeholder={{placeholder}}
+    pattern={{pattern}} required>
+</ng-container>
+
+<ng-template #notRequired>
+  <input #field class="field-text" (input)="onInput(field.value)" id={{id}} type={{type}} placeholder={{placeholder}}
+    pattern={{pattern}}>
+</ng-template>

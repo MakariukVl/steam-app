@@ -11,17 +11,20 @@
   <app-button>MyButton</app-button>
   <app-block-filter></app-block-filter>
   <app-form title="Profile" buttonText="Submit" (appSubmit)="onSubmit()">
-    <app-field-text-labeled title="FirstName" type="text" placeholder="FirstName" [(value)]="name">
+    <app-field-text-labeled title="FirstName" type="text" placeholder="FirstName" [(value)]="formInput.name"
+      [required]="true">
     </app-field-text-labeled>
-    <app-field-text-labeled title="Email" type="email" placeholder="Your Email" [(value)]="email">
+    <app-field-text-labeled title="Email" type="email" placeholder="Your Email" [(value)]="formInput.email"
+      [required]="true">
     </app-field-text-labeled>
-    <app-field-text-labeled title="Age" type="number" placeholder="Your Age" [(value)]="age"></app-field-text-labeled>
+    <app-field-text-labeled title="Age" type="number" placeholder="Your Age" [(value)]="formInput.age">
+    </app-field-text-labeled>
   </app-form>
   <ng-container *ngIf="isSubmit">
     <h5>User</h5>
-    <div>Name: {{name}}</div>
-    <div>Email: {{email}}</div>
-    <div>Age: {{age}}</div>
+    <div>Name: {{user.name}}</div>
+    <div>Email: {{user.email}}</div>
+    <div>Age: {{user.age}}</div>
   </ng-container>
   <div>
     <app-checkbox-field></app-checkbox-field><br />
@@ -29,6 +32,7 @@
     <app-checkbox-field name="games" labelText="Indie" value="indie"></app-checkbox-field><br />
     <app-checkbox-field name="games" labelText="Adventure" value="adventure"></app-checkbox-field>
   </div>
-  <app-range-labeled-field labelTextSuffix="Price"></app-range-labeled-field>
+  <app-range [defaultMin]="100" [defaultMax]="1000" labelTextSuffix="Price" name="filter-price" [(value)]="filterPrice">
+  </app-range>
   <router-outlet></router-outlet>
 </main>

@@ -12,6 +12,7 @@ export class FieldTextComponent implements OnInit {
   @Input() pattern?: string;
   @Input() type?: TextInputType;
   @Input() id!: string;
+  @Input() required?: boolean;
 
   @Output() valueChange = new EventEmitter<string | null>();
 

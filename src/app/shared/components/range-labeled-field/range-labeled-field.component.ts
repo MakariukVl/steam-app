@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-range-labeled-field',
+  selector: 'app-range',
   templateUrl: './range-labeled-field.component.html',
   styleUrls: ['./range-labeled-field.component.scss'],
 })
@@ -12,6 +12,8 @@ export class RangeLabeledFieldComponent implements OnInit {
   /* pseudo - unique random value */
   generatedId = `sliderID-${Date.now()}.${Math.random().toString().slice(10)}`;
 
+  @Input() defaultMin?: number;
+  @Input() defaultMax?: number;
   @Input() name?: string;
   @Input() labelTextSuffix?: string;
   @Input() value?: number;
@@ -25,7 +27,7 @@ export class RangeLabeledFieldComponent implements OnInit {
   onSliderInput(sliderValue: number) {
     this.value = sliderValue;
     this.valueChange.emit(this.value);
-    this.labelText = this.labelTextSuffix + ': ' + this.value;
+    this.labelText = this.labelTextSuffix + ' (up to): ' + this.value;
     console.log('[Range Field] Output:', this.value);
 
     if (this.maxValue && this.maxValue === sliderValue) {
@@ -38,8 +40,10 @@ export class RangeLabeledFieldComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.minValue = this.minValue ?? 0;
-    this.maxValue = this.maxValue ?? 100;
+    this.defaultMin = this.defaultMin ?? 0;
+    this.defaultMax = this.defaultMax ?? 100;
+    this.minValue = this.minValue ?? this.defaultMin ?? 0;
+    this.maxValue = this.maxValue ?? this.defaultMax ?? 100;
     this.value = this.value ?? 100;
     this.name = this.name || 'ranged-slider';
     this.labelTextSuffix = this.labelTextSuffix || 'Value';
