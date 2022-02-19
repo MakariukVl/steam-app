@@ -1,0 +1,10 @@
+<form (submit)="onSubmit($event)" class="range-setter">
+
+  <input #inputMin class="range-setter__input" [class.range-setter__input_error]="isInvalidRange" type="number"
+    (change)="minValue = +inputMin.value; onChange()" min="0" required [value]="minValue"><span> -
+  </span>
+  <input #inputMax class="range-setter__input" [class.range-setter__input_error]="isInvalidRange" type="number"
+    (change)="maxValue = +inputMax.value; onChange()" min="0" required [value]="maxValue">
+  <app-button size="small" colorScheme="secondary" type="submit" [isDisabled]="isInvalidRange">OK</app-button>
+
+</form>

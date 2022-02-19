@@ -13,19 +13,21 @@ import { BlockFilterComponent } from './components/block-filter/block-filter.com
 import { CardGameComponent } from './components/card-game/card-game.component';
 import { FormDataDrivenComponent } from './components/form-data-driven/form-data-driven.component';
 import { FieldTextLabeledComponent } from './components/field-text-labeled/field-text-labeled.component';
+import { RangeSettersComponent } from './components/range-setters/range-setters.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 
 @NgModule({
   declarations: [  
-    LabelComponent, FieldTextComponent, ButtonComponent, NavigationComponent, FormSearchComponent, CheckboxFieldComponent, RangeFieldComponent, RangeLabeledFieldComponent, BlockFilterComponent, CardGameComponent, FormDataDrivenComponent, FieldTextLabeledComponent
+    LabelComponent, FieldTextComponent, ButtonComponent, NavigationComponent, FormSearchComponent, CheckboxFieldComponent, RangeFieldComponent, RangeLabeledFieldComponent, BlockFilterComponent, CardGameComponent, FormDataDrivenComponent, FieldTextLabeledComponent, RangeSettersComponent, AlertComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule
   ],
   exports: [
-    ButtonComponent, NavigationComponent, FormSearchComponent, CheckboxFieldComponent, RangeFieldComponent, RangeLabeledFieldComponent, BlockFilterComponent, CardGameComponent, FormDataDrivenComponent, FieldTextLabeledComponent
+    ButtonComponent, NavigationComponent, FormSearchComponent, CheckboxFieldComponent, RangeLabeledFieldComponent, BlockFilterComponent, CardGameComponent, FormDataDrivenComponent, FieldTextLabeledComponent
   ]
 })
 export class SharedModule { }

@@ -84,6 +84,13 @@ input[type="submit"], input[type="reset"] {
   text-align: center;
 }
 
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 input, input[type="text"], 
 input[type="email"], input[type="password"], 
 input[type="number"], input[type="tel"] {

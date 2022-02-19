@@ -1,0 +1,50 @@
+.app-range {
+  & {
+    /* Override default CSS styles of range */
+    -webkit-appearance: none; 
+    appearance: none;
+    cursor: default;
+
+    border: none;
+    border-radius: 50px;
+    background: var(--accent);
+    min-width: 147px;
+    min-height: 4px;
+    height: 4px;
+    outline: none;
+    padding: initial;
+    margin: 2px;
+
+    opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+  }
+
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--light);
+    border: 0.5px solid var(--dark);
+    border-radius: 50% 50%;
+    cursor: pointer; /* Cursor on hover */
+    box-sizing: border-box;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  }
+  &::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--light);
+    border: 0.5px solid var(--dark);
+    border-radius: 50% 50%;
+    cursor: pointer; /* Cursor on hover */
+    box-sizing: border-box;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  }
+  /* Mouse-over effects */
+  &:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+}

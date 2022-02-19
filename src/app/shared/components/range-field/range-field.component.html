@@ -1,1 +1,2 @@
-<p>range-field works!</p>
+<input #slider class="app-range" type="range" [name]="name" [id]="id" [min]="min" [max]="max"
+  (input)="onInput(slider.valueAsNumber)" [value]="value">

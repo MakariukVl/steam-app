@@ -1,6 +1,8 @@
-<button class="button button_hover button_active" [ngClass]="{
+<button class="button button_hover button_active" [disabled]="isDisabled" [ngClass]="{
   'button_primary': colorScheme === 'primary', 
   'button_secondary': colorScheme === 'secondary', 
-  'button_warning': colorScheme === 'warning'}" [type]="type" (click)="appClick.emit()">
+  'button_warning': colorScheme === 'warning',
+  'button_small': size === 'small',
+  'button_normal': size=== 'normal'}" [type]="type" (click)="appClick.emit()">
   <ng-content></ng-content>
 </button>
