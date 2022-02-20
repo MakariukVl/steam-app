@@ -1,4 +1,4 @@
-<app-navigation [authorized]="false"></app-navigation>
+<app-navigation [authorized]="true"></app-navigation>
 <main>
   <h1>Your Games Library</h1>
   <p>App-Component</p>
@@ -34,7 +34,7 @@
   </div>
   <app-range [defaultMin]="100" [defaultMax]="1000" labelTextSuffix="Price" name="filter-price" [(value)]="filterPrice">
   </app-range>
-  <app-card title="Game Title 1" [price]="250" currencyCode="UAH">
+  <app-card title="Doom Ethernal 1" [price]="250" currencyCode="UAH">
     <p class="card-description">
       Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign to conquer demons across
       dimensions and stop the final destruction of humanity. The only thing they fear... is you.
