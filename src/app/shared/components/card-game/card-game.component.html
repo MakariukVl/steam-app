@@ -1,1 +1,16 @@
-<p>card-game works!</p>
+<div class="app-card">
+  <div class="app-card__header">
+    <h3 class="app-card__title">{{title}}</h3>
+    <span *ngIf="price && currencyCode" class="app-card__price">{{price}} {{currencyCode}}</span>
+  </div>
+
+  <div class="app-card__body">
+    <!-- Injects only elements with CSS class .card-description -->
+    <ng-content select=".card-description"></ng-content>
+  </div>
+
+  <div class="app-card__footer">
+    <!-- Injects only elements with CSS class .card-button -->
+    <ng-content select=".card-button" class="app-card__footer"></ng-content>
+  </div>
+</div>

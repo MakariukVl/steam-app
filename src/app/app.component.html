@@ -34,5 +34,14 @@
   </div>
   <app-range [defaultMin]="100" [defaultMax]="1000" labelTextSuffix="Price" name="filter-price" [(value)]="filterPrice">
   </app-range>
+  <app-card title="Game Title 1" [price]="250" currencyCode="UAH">
+    <p class="card-description">
+      Hell’s armies have invaded Earth. Become the Slayer in an epic single-player campaign to conquer demons across
+      dimensions and stop the final destruction of humanity. The only thing they fear... is you.
+    </p>
+    <app-button colorScheme="primary" class="card-button">Add to library</app-button>
+    <!-- <app-button colorScheme="primary" class="card-button">Download</app-button>
+    <app-button colorScheme="secondary" class="card-button">Share</app-button> -->
+  </app-card>
   <router-outlet></router-outlet>
 </main>

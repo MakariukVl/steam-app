@@ -159,3 +159,6 @@ main {
   margin: 120px;
   padding: 20px 60px;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family:var(--main-font); }
