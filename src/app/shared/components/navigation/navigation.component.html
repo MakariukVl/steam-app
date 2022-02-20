@@ -9,4 +9,16 @@
   <a class="navigation__link navigation__link_hover" routerLink="/library" *ngIf="authorized">Library</a>
   <a class="navigation__link navigation__link_hover" routerLink="/friends" *ngIf="authorized">Friends</a>
   <a class="navigation__link navigation__link_hover" routerLink="/profile" *ngIf="authorized">Profile</a>
+
+  <ng-container *ngIf="authorized; else signin">
+    <span class="navigation__button-wrapper">
+      <a class="navigation__button navigation__button_hover" href="/login">Sign Out</a>
+    </span>
+  </ng-container>
 </nav>
+
+<ng-template #signin>
+  <span class="navigation__button-wrapper">
+    <a class="navigation__button navigation__button_hover" routerLink="/login">Sign In</a>
+  </span>
+</ng-template>
