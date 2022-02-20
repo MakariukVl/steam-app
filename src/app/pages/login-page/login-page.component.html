@@ -1,1 +1,10 @@
-<p>login-page works!</p>
+<app-navigation class="login-page__navigation" [authorized]="true"></app-navigation>
+
+<app-form class="login-page__form" title="Sign In" buttonText="Sign In" (appSubmit)="onSubmit()">
+  <app-field-text-labeled title="Email" type="email" placeholder="Your Email" [(value)]="formInput.email"
+    [required]="true">
+  </app-field-text-labeled>
+  <app-field-text-labeled title="Password" type="password" placeholder="Your Password" [(value)]="formInput.password"
+    [required]="true">
+  </app-field-text-labeled>
+</app-form>

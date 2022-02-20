@@ -1,0 +1,23 @@
+:host {
+  font-family: var(--main-font);
+  font-style: normal;
+  font-weight: 400;
+  background-color: var(--neutral);
+  height: 100%;
+  position: relative;
+}
+
+.profile-page {
+  &__navigation {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  &__form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

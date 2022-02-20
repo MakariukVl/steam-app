@@ -4,8 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '@core/app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from '@pages/pages.module';
-import { SharedModule } from '@shared/shared.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; //temp debug
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
     BrowserModule,
     AppRoutingModule,
     PagesModule,
-    SharedModule, //temp debug (later moved to pages)
     BrowserAnimationsModule 
   ],
   providers: [],
