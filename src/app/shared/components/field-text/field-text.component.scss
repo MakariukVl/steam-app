@@ -1,3 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+
+  align-self: stretch;
+}
+
 .field-text {
   background-color: rgba(255, 0, 0, 0);
   border: 0.5px solid var(--dark);
@@ -8,4 +18,6 @@
   min-width: 200px;
   height: 32px;
   margin: 0;
+
+  align-self: stretch;
 }

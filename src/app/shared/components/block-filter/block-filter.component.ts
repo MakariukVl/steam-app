@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./block-filter.component.scss']
 })
 export class BlockFilterComponent implements OnInit {
-
+  // TODO: DELETE this component! +in shared module
   constructor() { }
 
   ngOnInit(): void {

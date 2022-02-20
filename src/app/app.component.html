@@ -9,7 +9,7 @@
   <app-button colorScheme="warning">Click</app-button>
   <app-button colorScheme="secondary">Cancel</app-button>
   <app-button>MyButton</app-button>
-  <app-block-filter></app-block-filter>
+  
   <app-form title="Profile" buttonText="Submit" (appSubmit)="onSubmit()">
     <app-field-text-labeled title="FirstName" type="text" placeholder="FirstName" [(value)]="formInput.name"
       [required]="true">
@@ -43,5 +43,6 @@
     <!-- <app-button colorScheme="primary" class="card-button">Download</app-button>
     <app-button colorScheme="secondary" class="card-button">Share</app-button> -->
   </app-card>
+  <app-form-search title="Search Friends"></app-form-search>
   <router-outlet></router-outlet>
 </main>

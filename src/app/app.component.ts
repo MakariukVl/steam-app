@@ -21,20 +21,10 @@ export class AppComponent {
     age: '',
   };
 
-  // name: string | null = '';
-  // email: string | null = '';
-  // age: string | null = '';
-
   isSubmit = false;
 
   onSubmit() {
     this.isSubmit = true;
     this.user = { ...this.formInput };
-
-    console.group('User');
-    console.log(this.user.name);
-    console.log(this.user.email);
-    console.log(this.user.age);
-    console.groupEnd();
   }
 }

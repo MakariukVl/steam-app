@@ -1,1 +1,5 @@
-<p>form search works</p>
+<form class="search-form" (submit)="onSubmit($event)">
+  <app-field-text-labeled class="search-form__field" [title]="title" type="text" [placeholder]="title" [(value)]="searchValue">
+  </app-field-text-labeled>
+  <app-button class="search-form__button" colorScheme="primary" type="submit">Search</app-button>
+</form>
