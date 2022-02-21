@@ -6,8 +6,8 @@ import { EncrDecrService } from './encr-decr.service';
 import { FakeUsersService } from './fake-users.service';
 
 @Injectable({
-  // providedIn: 'root'
-  providedIn: CoreModule,
+  providedIn: 'root'
+  // providedIn: CoreModule,
 })
 export class AuthService {
   signedUser: UserCredentialsModel | null = null;

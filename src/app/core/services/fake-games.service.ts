@@ -5,8 +5,8 @@ import { GameModel } from '@core/models/game.model';
 import { Observable, of, take } from 'rxjs';
 
 @Injectable({
-  // providedIn: 'root',
-  providedIn: CoreModule,
+  providedIn: 'root',
+  // providedIn: CoreModule,
 })
 export class FakeGamesService {
   constructor() {}

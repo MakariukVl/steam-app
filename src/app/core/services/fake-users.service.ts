@@ -6,8 +6,8 @@ import { UserModel } from '@core/models/user.model';
 import { delay, Observable, of, take } from 'rxjs';
 
 @Injectable({
-  // providedIn: 'root',
-  providedIn: CoreModule,
+  providedIn: 'root',
+  // providedIn: CoreModule,
 })
 export class FakeUsersService {
   constructor() {}
