@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileFormModel } from '@core/model/profile-form.model';
+import { ProfileFormModel } from '@core/models/profile-form.model';
 
 @Component({
   selector: 'app-profile-page',

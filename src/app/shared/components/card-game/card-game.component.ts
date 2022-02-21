@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CurrencyCodes } from '@core/model/currency-code.model';
+import { CardCurrencyCodes } from '@shared/interfaces/card-currency-codes';
 
 @Component({
   selector: 'app-card',
@@ -9,7 +9,7 @@ import { CurrencyCodes } from '@core/model/currency-code.model';
 export class CardGameComponent implements OnInit {
   @Input() title?: string;
   @Input() price?: number;
-  @Input() currencyCode?: CurrencyCodes;
+  @Input() currencyCode?: CardCurrencyCodes;
 
   constructor() {}
 
