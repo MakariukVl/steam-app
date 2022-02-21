@@ -29,16 +29,16 @@ export class AppComponent implements OnInit {
   //   this.user = { ...this.formInput };
   // }
 
-  constructor(private encrDecrService: EncrDecrService) {}
+  constructor(/* private encrDecrService: EncrDecrService */) {}
 
   ngOnInit(): void {
-    const msg = 'encrypt me';
-    const salt = this.encrDecrService.getRandomSalt();
-    const saltedHash = this.encrDecrService.hashPBKDF2(msg, salt);
+    // const msg = 'encrypt me';
+    // const salt = this.encrDecrService.getRandomSalt();
+    // const saltedHash = this.encrDecrService.hashPBKDF2(msg, salt);
 
-    console.log('message:', msg);
-    console.log('encrypted hash1:', saltedHash.toString());
-    console.log('salt1:', salt.toString());
+    // console.log('message:', msg);
+    // console.log('encrypted hash1:', saltedHash.toString());
+    // console.log('salt1:', salt.toString());
 
     // const arr = [1, 2, 3];
     // console.log('arr-1',arr[-1]);

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { CoreModule } from '@core/core.module';
 import * as CryptoJS from 'crypto-js';
 
 @Injectable({
-  providedIn: 'root',
+  // providedIn: 'root',
+  providedIn: CoreModule,
 })
 export class EncrDecrService {
   constructor() {}

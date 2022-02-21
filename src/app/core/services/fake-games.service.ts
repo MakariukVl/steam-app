@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { CoreModule } from '@core/core.module';
 import { GAMES_MOCKED_DATA } from '@core/mocks/games-mocked-data.mock';
 import { GameModel } from '@core/models/game.model';
 import { Observable, of, take } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  // providedIn: 'root',
+  providedIn: CoreModule,
 })
 export class FakeGamesService {
   constructor() {}

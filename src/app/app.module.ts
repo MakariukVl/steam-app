@@ -5,7 +5,6 @@ import { AppRoutingModule } from '@core/app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from '@pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EncrDecrService } from '@core/services/encr-decr.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +14,7 @@ import { EncrDecrService } from '@core/services/encr-decr.service';
     PagesModule,
     BrowserAnimationsModule,
   ],
-  providers: [EncrDecrService], //tmp
+  providers: [], 
   bootstrap: [AppComponent],
 })
 export class AppModule {}

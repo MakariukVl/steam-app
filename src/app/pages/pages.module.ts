@@ -7,6 +7,7 @@ import { FriendsPageComponent } from './friends-page/friends-page.component';
 import { GamesPageComponent } from './games-page/games-page.component';
 import { LibraryPageComponent } from './library-page/library-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { CoreModule } from '@core/core.module';
 
 
 
@@ -21,7 +22,8 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    CoreModule.forRoot()
   ]
 })
 export class PagesModule { }
