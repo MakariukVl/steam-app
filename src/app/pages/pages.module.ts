@@ -6,6 +6,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { FriendsPageComponent } from './friends-page/friends-page.component';
 import { GamesPageComponent } from './games-page/games-page.component';
 import { LibraryPageComponent } from './library-page/library-page.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 
 
@@ -15,7 +16,8 @@ import { LibraryPageComponent } from './library-page/library-page.component';
     ProfilePageComponent,
     FriendsPageComponent,
     GamesPageComponent,
-    LibraryPageComponent
+    LibraryPageComponent,
+    NotFoundPageComponent
   ],
   imports: [
     CommonModule,

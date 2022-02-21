@@ -4,6 +4,7 @@ import { FriendsPageComponent } from '@pages/friends-page/friends-page.component
 import { GamesPageComponent } from '@pages/games-page/games-page.component';
 import { LibraryPageComponent } from '@pages/library-page/library-page.component';
 import { LoginPageComponent } from '@pages/login-page/login-page.component';
+import { NotFoundPageComponent } from '@pages/not-found-page/not-found-page.component';
 import { ProfilePageComponent } from '@pages/profile-page/profile-page.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'friends', component: FriendsPageComponent },
   { path: 'profile', component: ProfilePageComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', component: NotFoundPageComponent},
 ];
 
 @NgModule({

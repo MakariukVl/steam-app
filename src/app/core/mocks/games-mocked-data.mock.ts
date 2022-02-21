@@ -1,6 +1,6 @@
 import { GameModel } from '@core/models/game.model';
 
-export const gamesMockedData: GameModel[] = [
+export const GAMES_MOCKED_DATA: GameModel[] = [
   {
     id: 0,
     name: 'Doom',

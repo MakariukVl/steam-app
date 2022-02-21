@@ -32,24 +32,15 @@ export class AppComponent implements OnInit {
   constructor(private encrDecrService: EncrDecrService) {}
 
   ngOnInit(): void {
-    const msg = 'usmc';
-    const salt1 = this.encrDecrService.getRandomSalt();
-    // const salt2 = this.encrDecrService.getRandomSalt();
-    const saltedHash1 = this.encrDecrService.hashPBKDF2(msg, salt1);
-    // const saltedHash2 = this.encrDecrService.hashPBKDF2(msg, salt1);
-    // const saltedHash3 = this.encrDecrService.hashPBKDF2(msg, salt2);
+    const msg = 'encrypt me';
+    const salt = this.encrDecrService.getRandomSalt();
+    const saltedHash = this.encrDecrService.hashPBKDF2(msg, salt);
 
     console.log('message:', msg);
-    console.log('encrypted hash1:', saltedHash1.toString());
-    // console.log('encrypted hash1:', saltedHash1.toString());
-    // console.log('encrypted hash2:', saltedHash2.toString());
-    // console.log('encrypted hash2:', saltedHash2.toString());
+    console.log('encrypted hash1:', saltedHash.toString());
+    console.log('salt1:', salt.toString());
 
-    console.log('salt1:', salt1.toString());
-    // console.log('salt2:', salt2.toString());
-
-    // console.log('encoded with salt2');
-    // console.log('encrypted hash3:', saltedHash3.toString());
-    // console.log('encrypted hash3:', saltedHash3.toString());
+    // const arr = [1, 2, 3];
+    // console.log('arr-1',arr[-1]);
   }
 }

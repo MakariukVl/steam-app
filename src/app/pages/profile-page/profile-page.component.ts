@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProfileFormModel } from '@core/models/profile-form.model';
 
 @Component({
@@ -13,7 +14,9 @@ export class ProfilePageComponent implements OnInit {
     age: '',
   };
 
-  constructor() {}
+  constructor(/*private route: ActivatedRoute*/) {
+    // console.log(route.snapshot.url.toString()); //profile
+  }
 
   onSubmit() {}
 
