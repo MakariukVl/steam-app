@@ -6,15 +6,20 @@ import { EncrDecrService } from './encr-decr.service';
 import { FakeUsersService } from './fake-users.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
   // providedIn: CoreModule,
 })
 export class AuthService {
   signedUser: UserCredentialsModel | null = null;
   status: string = '';
-  login$ = new BehaviorSubject<{ authorized: boolean; status: string }>({
+  login$ = new BehaviorSubject<{
+    authorized: boolean;
+    status: string;
+    user: UserCredentialsModel | null;
+  }>({
     authorized: !!this.signedUser,
     status: this.status,
+    user: this.signedUser,
   });
 
   constructor(
@@ -39,7 +44,11 @@ export class AuthService {
         } else {
           this.signedUser = null;
           this.status = 'Error! You typed wrong password!';
-          this.login$.next({ authorized: !!this.signedUser, status: this.status });
+          this.login$.next({
+            authorized: !!this.signedUser,
+            status: this.status,
+            user: this.signedUser,
+          });
         }
         // console.log('login:', email);
         // console.log('password:', password);
@@ -48,7 +57,11 @@ export class AuthService {
       } else {
         this.signedUser = null;
         this.status = 'Error! You typed not registered email!';
-        this.login$.next({ authorized: !!this.signedUser, status: this.status });
+        this.login$.next({
+          authorized: !!this.signedUser,
+          status: this.status,
+          user: this.signedUser,
+        });
       }
     });
     // usersFound$.pipe(
@@ -59,10 +72,18 @@ export class AuthService {
   logout() {
     this.signedUser = null;
     this.status = 'You have successfully logout!';
-    this.login$.next({ authorized: !!this.signedUser, status: this.status });
+    this.login$.next({
+      authorized: !!this.signedUser,
+      status: this.status,
+      user: this.signedUser,
+    });
   }
 
   getLoginObservable(): Observable<{ authorized: boolean; status: string }> {
-    return this.login$ as Observable<{ authorized: boolean; status: string }>;
+    return this.login$ as Observable<{
+      authorized: boolean;
+      status: string;
+      user: UserCredentialsModel | null;
+    }>;
   }
 }
