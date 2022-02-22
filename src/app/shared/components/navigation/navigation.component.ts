@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AuthService } from '@core/services/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,8 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
   @Input() authorized?: boolean;
+  @Output() onlogout = new EventEmitter();
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authorized = this.authorized || false;
@@ -16,5 +18,10 @@ export class NavigationComponent implements OnInit {
 
   onAnchorClick() {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }
+
+  onLogOut() {
+    this.authService.logout();
+    this.onlogout.emit();
   }
 }

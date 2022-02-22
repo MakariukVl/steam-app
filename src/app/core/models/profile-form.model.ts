@@ -1,5 +1,5 @@
 export interface ProfileFormModel {
-  username: string | null;
-  email: string | null;
-  age: string | null;
+  username: string;
+  email: string;
+  age: string;
 }

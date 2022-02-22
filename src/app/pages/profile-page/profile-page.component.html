@@ -1,4 +1,4 @@
-<app-navigation class="profile-page__navigation" [authorized]="true"></app-navigation>
+<app-navigation class="profile-page__navigation" [authorized]="isAuthenticated"></app-navigation>
 
 <app-form class="profile-page__form" title="Profile" buttonText="Save" (appSubmit)="onSubmit()">
   <app-field-text-labeled title="Username" type="text" placeholder="Your Email" [(value)]="formInput.username"

@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class FormSearchComponent implements OnInit {
   @Input() title?: string;
 
-  searchValue: string | null = '';
+  searchValue: string = '';
 
   @Output() formSubmit = new EventEmitter<string>();
 

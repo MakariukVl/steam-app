@@ -14,7 +14,8 @@ export class FieldTextComponent implements OnInit {
   @Input() id!: string;
   @Input() required?: boolean;
 
-  @Output() valueChange = new EventEmitter<string | null>();
+  @Input() value?: string;
+  @Output() valueChange = new EventEmitter<string>();
 
   constructor() {}
 
@@ -23,6 +24,7 @@ export class FieldTextComponent implements OnInit {
     this.placeholder = this.placeholder || 'Input Placeholder';
     this.id = this.id || 'Input';
     this.pattern = this.pattern || '.*';
+    this.value = '';
   }
 
   onInput(value: string) {

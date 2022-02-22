@@ -12,7 +12,7 @@
 
   <ng-container *ngIf="authorized; else signin">
     <span class="navigation__button-wrapper">
-      <a class="navigation__button navigation__button_hover" href="/login">Sign Out</a>
+      <a class="navigation__button navigation__button_hover" href="/login" (click)="onLogOut()">Sign Out</a>
     </span>
   </ng-container>
 </nav>

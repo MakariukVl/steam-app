@@ -19,4 +19,11 @@ export class FakeGamesService {
     const gamesFound = GAMES_MOCKED_DATA.filter((g) => gameIds.includes(g.id));
     return of(gamesFound).pipe(take(1));
   }
+
+  searchGamesByName(gameName: string): Observable<GameModel[]> {
+    const gamesFound = GAMES_MOCKED_DATA.filter((g) =>
+      g.name.toLowerCase().includes(gameName.toLowerCase())
+    );
+    return of(gamesFound).pipe(take(1));
+  }
 }

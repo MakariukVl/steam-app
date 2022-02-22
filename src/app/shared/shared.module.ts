@@ -16,8 +16,6 @@ import { FieldTextLabeledComponent } from './components/field-text-labeled/field
 import { RangeSettersComponent } from './components/range-setters/range-setters.component';
 import { AlertComponent } from './components/alert/alert.component';
 
-
-
 @NgModule({
   declarations: [  
     LabelComponent, FieldTextComponent, ButtonComponent, NavigationComponent, FormSearchComponent, CheckboxFieldComponent, RangeFieldComponent, RangeLabeledFieldComponent, BlockFilterComponent, CardGameComponent, FormDataDrivenComponent, FieldTextLabeledComponent, RangeSettersComponent, AlertComponent

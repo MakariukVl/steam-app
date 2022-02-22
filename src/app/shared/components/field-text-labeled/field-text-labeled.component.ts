@@ -15,10 +15,10 @@ export class FieldTextLabeledComponent implements OnInit {
   @Input() placeholder?: string;
   @Input() required?: boolean;
 
-  @Input() value: string | null = '';
-  @Output() valueChange = new EventEmitter<string | null>();
+  @Input() value?: string;
+  @Output() valueChange = new EventEmitter<string>();
 
-  onChange(inputValue: string | null) {
+  onChange(inputValue: string) {
     this.value = inputValue;
     this.valueChange.emit(inputValue);
   }
@@ -27,5 +27,6 @@ export class FieldTextLabeledComponent implements OnInit {
 
   ngOnInit(): void {
     this.required = this.required ?? false;
+    this.value = '';
   }
 }

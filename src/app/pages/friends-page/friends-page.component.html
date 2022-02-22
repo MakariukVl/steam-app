@@ -1,1 +1,10 @@
-<p>friends-page works!</p>
+<app-navigation class="friends-page__navigation" [authorized]="true"></app-navigation>
+
+<main class="friends-page__main">
+
+  <h2 class="friends-page__header">Friends</h2>
+  <app-form-search title="Search Friends" (formSubmit)="onSubmit($event)"></app-form-search>
+
+  <!-- <ng-container *ngIf="expression"></ng-container> -->
+
+</main>
