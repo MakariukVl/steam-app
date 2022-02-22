@@ -59,6 +59,15 @@ export class FakeUsersService {
     return of(friends);
   }
 
+  getPersonBy(
+    callback: (person: PersonModel) => boolean
+  ): Observable<PersonModel[]> {
+    const personsFound = USERS_MOCKED_DATA.filter((u) => callback(u)).map(
+      (u) => u as PersonModel
+    );
+    return of(personsFound).pipe(take(1));
+  }
+
   addFriend(userId: number, friendId: number): boolean {
     const userIndex = USERS_MOCKED_DATA.findIndex((u) => u.id === userId);
     const friendIndex = USERS_MOCKED_DATA.findIndex((u) => u.id === friendId);

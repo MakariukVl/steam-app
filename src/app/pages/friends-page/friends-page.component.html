@@ -5,16 +5,23 @@
   <h2 class="friends-page__header">Friends</h2>
   <app-form-search title="Search Friends" (formSubmit)="onSubmit($event)"></app-form-search>
 
-  <ng-container *ngIf="isAuthorized">
+  <ng-container *ngIf="isAuthorized && !isSearch; else searchResults">
     <h2 class="friends-page__header">My Friends</h2>
     <div class="friends-page__record" *ngFor="let friend of friends$ | async">
       <span>{{friend.name}}</span>
-      <app-button colorScheme="warning">Remove Friend</app-button>
+      <app-button colorScheme="warning" (appClick)="onRemove(friend)">Remove Friend</app-button>
     </div>
   </ng-container>
 
 </main>
 
-<ng-template>
-  <h2>Search Friends: </h2>
+<ng-template #searchResults>
+  <h2 class="friends-page__header">Search Friends: {{searchText}}</h2>
+  <div class="friends-page__record" *ngFor="let friend of search$ | async">
+    <span>{{friend.name}}</span>
+    <app-button *ngIf="signedUser && friend.friends.has(signedUser.id)" colorScheme="warning"
+      (appClick)="onRemove(friend)">Remove Friend</app-button>
+    <app-button *ngIf="signedUser && !friend.friends.has(signedUser.id)" colorScheme="primary"
+      (appClick)="onAdd(friend)">Add Friend</app-button>
+  </div>
 </ng-template>

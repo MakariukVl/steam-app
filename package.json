@@ -1,6 +1,6 @@
 {
   "name": "steam-app",
-  "version": "0.20.12",
+  "version": "0.21.13",
   "scripts": {
     "ng": "ng",
     "serve": "ng serve -o",
