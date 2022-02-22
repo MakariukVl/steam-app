@@ -8,13 +8,3 @@
     [required]="true">
   </app-field-text-labeled>
 </app-form>
-
-<h2><br/><br/><br/>Sign In Data</h2>
-<p>Authorized: {{isAuthenticated}}</p>
-<ng-container *ngIf="isAuthenticated">
-  <p>
-    Status: {{status}} <br />
-    UserMail: {{signedUser?.email}} <br />
-    UserId: {{signedUser?.id}}
-  </p>
-</ng-container>

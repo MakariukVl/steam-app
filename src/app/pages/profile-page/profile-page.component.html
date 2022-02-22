@@ -1,13 +1,51 @@
 <app-navigation class="profile-page__navigation" [authorized]="isAuthenticated"></app-navigation>
 
-<app-form class="profile-page__form" title="Profile" buttonText="Save" (appSubmit)="onSubmit()">
-  <app-field-text-labeled title="Username" type="text" placeholder="Your Email" [(value)]="formInput.username"
-    [required]="true">
-  </app-field-text-labeled>
-  <app-field-text-labeled title="Email" type="email" placeholder="Your Email" [(value)]="formInput.email"
-    [required]="true">
-  </app-field-text-labeled>
-  <app-field-text-labeled title="Age" type="number" placeholder="Your Password" [(value)]="formInput.age"
-    [required]="true">
-  </app-field-text-labeled>
-</app-form>
+<ng-container *ngIf="signedUser && userProfile$ && !editMode">
+  <section class="profile-page__userdata">
+    <h2 class="profile-page__header">Your Profile</h2>
+
+    <table class="profile-page__table">
+      <thead class="profile-page__table-head">
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+
+      <tbody class="profile-page__table-body">
+        <tr>
+          <td>ID</td>
+          <td>{{(userProfile$|async)?.id}}</td>
+        </tr>
+        <tr>
+          <td>E-mail</td>
+          <td>{{(userProfile$|async)?.email}}</td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td>{{(userProfile$|async)?.name}}</td>
+        </tr>
+        <tr>
+          <td>Age</td>
+          <td>{{(userProfile$|async)?.age}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <app-button colorScheme="primary" (appClick)="editMode = true">Edit</app-button>
+  </section>
+</ng-container>
+
+<ng-container *ngIf="editMode">
+  <app-form class="profile-page__form" title="Profile" buttonText="Save" (appSubmit)="onSubmit()">
+    <app-field-text-labeled title="Username" type="text" placeholder="Your Username" [(value)]="formInput.username"
+      [required]="true">
+    </app-field-text-labeled>
+    <app-field-text-labeled title="Email" type="email" placeholder="Your Email" [(value)]="formInput.email"
+      [required]="true">
+    </app-field-text-labeled>
+    <app-field-text-labeled title="Age" type="number" placeholder="Your Age" [(value)]="formInput.age"
+      [required]="true">
+    </app-field-text-labeled>
+  </app-form>
+</ng-container>

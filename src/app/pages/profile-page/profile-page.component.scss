@@ -21,4 +21,40 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  &__userdata {
+    background: var(--light);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    width: 360px;
+    padding: 20px 60px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  &__header {
+    font-size: 24px;
+    color: var(--dark);
+  }
+  &__table {
+    box-sizing: border-box;
+    margin: 8px;   
+    &-head {
+      border-bottom: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &-body {
+      border-bottom: 1px solid var(--accent);
+      td {       
+        padding: 8px;
+      }
+    }
+  }
 }
