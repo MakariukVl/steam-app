@@ -1,10 +1,20 @@
-<app-navigation class="friends-page__navigation" [authorized]="true"></app-navigation>
+<app-navigation class="friends-page__navigation" [authorized]="isAuthorized"></app-navigation>
 
 <main class="friends-page__main">
 
   <h2 class="friends-page__header">Friends</h2>
   <app-form-search title="Search Friends" (formSubmit)="onSubmit($event)"></app-form-search>
 
-  <!-- <ng-container *ngIf="expression"></ng-container> -->
+  <ng-container *ngIf="isAuthorized">
+    <h2 class="friends-page__header">My Friends</h2>
+    <div class="friends-page__record" *ngFor="let friend of friends$ | async">
+      <span>{{friend.name}}</span>
+      <app-button colorScheme="warning">Remove Friend</app-button>
+    </div>
+  </ng-container>
 
 </main>
+
+<ng-template>
+  <h2>Search Friends: </h2>
+</ng-template>
