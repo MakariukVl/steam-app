@@ -1,5 +1,16 @@
 <app-navigation class="library-page__navigation" [authorized]="isAuthorized"></app-navigation>
 
 <main class="library-page__main">
-  Lib
+  <h2 class="library-page__header">My Games</h2>
+  <div class="library-page__cards" *ngIf="isAuthorized">
+    <ng-container *ngFor="let game of games$ | async">
+      <app-card [title]="game.name" [price]="game.price" [currencyCode]="game.currencyCode">
+        <p class="card-description">
+          {{game.description}}
+        </p>
+        <app-button colorScheme="primary" class="card-button">Download</app-button>
+        <app-button colorScheme="secondary" class="card-button">Share</app-button>
+      </app-card>
+    </ng-container>
+  </div>
 </main>

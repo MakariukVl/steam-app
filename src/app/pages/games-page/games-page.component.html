@@ -1,5 +1,67 @@
 <app-navigation class="games-page__navigation" [authorized]="isAuthorized"></app-navigation>
 
 <main class="games-page__main">
-  GAMES
+  <h2 class="games-page__header">Games</h2>
+  <app-form-search title="Search Games" (formSubmit)="onSubmit($event)"></app-form-search>
+
+  <h2 class="games-page__header">Featured Games</h2>
+
+  <div class="games-page__layout">
+    <div class="games-page__cards">
+      <ng-container *ngIf="!isSearch; else searchResults">
+
+        <ng-container *ngFor="let game of games$ | async">
+
+          <app-card [title]="game.name" [price]="game.price" [currencyCode]="game.currencyCode">
+            <p class="card-description">
+              {{game.description}}
+            </p>
+            <app-button *ngIf="signedUser" colorScheme="primary" class="card-button"
+              (appClick)="onClick(signedUser.id)">
+              Add to Library</app-button>
+          </app-card>
+
+        </ng-container>
+
+      </ng-container>
+    </div>
+    <div class="games-page__filter">
+
+      <div class="games-page__filter-block">
+        <h3 class="games-page__sub-header">Filter by price</h3>
+        <app-range [defaultMin]="100" [defaultMax]="1000" labelTextSuffix="Price" name="price"
+          [(isMaxed)]="filter.isMaxed" [(value)]="filter.price"></app-range>
+      </div>
+
+      <div class="games-page__filter-block">
+        <h3 class="games-page__sub-header">Filter by tag</h3>
+        <app-checkbox-field name="tag" labelText="Indie" value="Indie" (appCheckedChange)="onChecked($event, 'Indie')">
+        </app-checkbox-field>
+        <app-checkbox-field name="tag" labelText="Action" value="Action"
+          (appCheckedChange)="onChecked($event, 'Action')">
+        </app-checkbox-field>
+        <app-checkbox-field name="tag" labelText="Adventure" value="Adventure"
+          (appCheckedChange)="onChecked($event, 'Adventure')">
+        </app-checkbox-field>
+      </div>
+    </div>
+  </div>
+
 </main>
+
+<!-- Search output -->
+<ng-template #searchResults>
+
+  <ng-container *ngFor="let game of search$ | async">
+
+    <app-card [title]="game.name" [price]="game.price" [currencyCode]="game.currencyCode">
+      <p class="card-description">
+        {{game.description}}
+      </p>
+      <app-button *ngIf="signedUser" colorScheme="primary" class="card-button" (appClick)="onClick(signedUser.id)">Add
+        to Library</app-button>
+    </app-card>
+
+  </ng-container>
+
+</ng-template>

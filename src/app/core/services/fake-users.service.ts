@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { CoreModule } from '@core/core.module';
 import { USERS_MOCKED_DATA } from '@core/mocks/users-mocked-data.mock';
 import { PersonModel } from '@core/models/person.model';
 import { UserCredentialsModel } from '@core/models/user-credentials.model';
 import { UserModel } from '@core/models/user.model';
-import { delay, Observable, of, take } from 'rxjs';
+import { Observable, of, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -56,7 +55,7 @@ export class FakeUsersService {
     } else {
       friends = [];
     }
-    return of(friends);
+    return of(friends).pipe(take(1));
   }
 
   getPersonBy(

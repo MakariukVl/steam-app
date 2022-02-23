@@ -18,6 +18,8 @@ export class RangeLabeledFieldComponent implements OnInit {
   @Input() labelTextSuffix?: string;
   @Input() value?: number;
   @Output() valueChange = new EventEmitter<number>();
+  @Input() isMaxed?: boolean;
+  @Output() isMaxedChange = new EventEmitter<boolean>();
 
   onSubmitRange(range: { min: number; max: number }) {
     this.minValue = range.min;
@@ -28,12 +30,14 @@ export class RangeLabeledFieldComponent implements OnInit {
     this.value = sliderValue;
     this.valueChange.emit(this.value);
     this.labelText = this.labelTextSuffix + ' (up to): ' + this.value;
-    console.log('[Range Field] Output:', this.value);
+    // console.log('[Range Field] Output:', this.value);
 
     if (this.maxValue && this.maxValue === sliderValue) {
+      this.isMaxedChange.emit(true);
       this.labelText = 'Any ' + this.labelTextSuffix;
-      console.log('[Range Field] Output:', this.labelText);
-      return;
+      // console.log('[Range Field] Output:', this.labelText);
+    } else {
+      this.isMaxedChange.emit(false);
     }
   }
 
@@ -45,6 +49,9 @@ export class RangeLabeledFieldComponent implements OnInit {
     this.minValue = this.minValue ?? this.defaultMin ?? 0;
     this.maxValue = this.maxValue ?? this.defaultMax ?? 100;
     this.value = this.value ?? 100;
+    const maxed = this.maxValue === this.value;
+    this.isMaxed = maxed;
+    this.isMaxedChange.emit(maxed);
     this.name = this.name || 'ranged-slider';
     this.labelTextSuffix = this.labelTextSuffix || 'Value';
   }

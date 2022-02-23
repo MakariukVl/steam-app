@@ -13,8 +13,8 @@ export class CheckboxFieldComponent implements OnInit {
   @Input() name?: string;
   @Input() value?: string;
   @Input() labelText?: string;
-  @Input() checked?: boolean;
-  @Output() checkedChanged = new EventEmitter<boolean>();
+  @Input() appChecked?: boolean;
+  @Output() appCheckedChange = new EventEmitter<boolean>();
 
   constructor() {}
 
@@ -22,11 +22,12 @@ export class CheckboxFieldComponent implements OnInit {
     this.name = this.name || 'checkbox-group';
     this.value = this.value || 'checkbox-value';
     this.labelText = this.labelText || 'Checkbox label';
-    this.checked = this.checked || false;
+    this.appChecked = this.appChecked || false;
+    this.appCheckedChange.emit(!!this.appChecked);
   }
 
   onChange(changed: boolean) {
-    this.checked = changed;
-    this.checkedChanged.emit(changed);
+    this.appChecked = changed;
+    this.appCheckedChange.emit(changed);
   }
 }

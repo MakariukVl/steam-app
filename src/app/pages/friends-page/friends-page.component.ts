@@ -38,10 +38,10 @@ export class FriendsPageComponent implements OnInit {
     }
 
     // show search result for non-empty search query
-    this.searchText = search;
+    this.searchText = search.toLowerCase();
     this.isSearch = true;
     this.search$ = this.usersService.getUsersBy((user) =>
-      user.name.includes(search)
+      user.name.toLowerCase().includes(search.toLowerCase())
     );
   }
 

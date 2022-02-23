@@ -1,5 +1,5 @@
 <div class="range">
-  <app-range-field [min]="minValue" [max]="maxValue" [id]="generatedId" name="" (sliderInput)="onSliderInput($event)">
+  <app-range-field [min]="minValue" [max]="maxValue" [id]="generatedId" [name]="name" (sliderInput)="onSliderInput($event)">
   </app-range-field>
   <app-label [labelText]="labelText" [targetId]="generatedId"></app-label>
   <app-range-setters [minValue]="defaultMin" [maxValue]="defaultMax" (submitRange)="onSubmitRange($event)"></app-range-setters>
