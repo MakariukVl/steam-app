@@ -12,8 +12,8 @@ export class RangeLabeledFieldComponent implements OnInit {
   /* pseudo - unique random value */
   generatedId = `sliderID-${Date.now()}.${Math.random().toString().slice(10)}`;
 
-  @Input() defaultMin?: number;
-  @Input() defaultMax?: number;
+  @Input() defaultMin?: number | string;
+  @Input() defaultMax?: number | string;
   @Input() name?: string;
   @Input() labelTextSuffix?: string;
   @Input() value?: number;
@@ -27,27 +27,33 @@ export class RangeLabeledFieldComponent implements OnInit {
   }
 
   onSliderInput(sliderValue: number) {
-    this.value = sliderValue;
-    this.valueChange.emit(this.value);
-    this.labelText = this.labelTextSuffix + ' (up to): ' + this.value;
-    // console.log('[Range Field] Output:', this.value);
+    setTimeout(() => {
+      this.value = sliderValue;
+      this.valueChange.emit(this.value);
+      this.labelText = this.labelTextSuffix + ' (up to): ' + this.value;
+      // console.log('[Range Field] Output:', this.value);
+      // console.log('[Slider Input] Occurred');
+      //TODO: Optimize!
 
-    if (this.maxValue && this.maxValue === sliderValue) {
-      this.isMaxedChange.emit(true);
-      this.labelText = 'Any ' + this.labelTextSuffix;
-      // console.log('[Range Field] Output:', this.labelText);
-    } else {
-      this.isMaxedChange.emit(false);
-    }
+      if (this.maxValue && this.maxValue === sliderValue) {
+        this.isMaxedChange.emit(true);
+        this.labelText = 'Any ' + this.labelTextSuffix;
+        // console.log('[Range Field] Output:', this.labelText);
+      } else {
+        this.isMaxedChange.emit(false);
+      }
+    });
   }
 
-  constructor() {}
+  constructor() {
+    // console.log('[Slider Input] Construct');
+  }
 
   ngOnInit(): void {
     this.defaultMin = this.defaultMin ?? 0;
     this.defaultMax = this.defaultMax ?? 100;
-    this.minValue = this.minValue ?? this.defaultMin ?? 0;
-    this.maxValue = this.maxValue ?? this.defaultMax ?? 100;
+    this.minValue = this.minValue ?? +this.defaultMin ?? 0;
+    this.maxValue = this.maxValue ?? +this.defaultMax ?? 100;
     this.value = this.value ?? 100;
     const maxed = this.maxValue === this.value;
     this.isMaxed = maxed;

@@ -19,36 +19,34 @@ export class FakeGamesService {
     return of(GAMES_MOCKED_DATA).pipe(take(1));
   }
 
-  getGamesByIds(gameIds: number[]): Observable<GameModel[]> {
-    const gamesFound = GAMES_MOCKED_DATA.filter((g) => gameIds.includes(g.id));
-    return of(gamesFound).pipe(take(1));
-  } // trash?
-
-  searchGamesByName(gameName: string): Observable<GameModel[]> {
-    const gamesFound = GAMES_MOCKED_DATA.filter((g) =>
-      g.name.toLowerCase().includes(gameName.toLowerCase())
-    );
-    return of(gamesFound).pipe(take(1));
-  } // trash?
-
   // search for guests
   searchGames(params: {
     search: string;
     tags: GameTagTypes[];
     price?: number;
+    isMaxed: boolean;
   }): Observable<GameModel[]> {
     const gamesFound = GAMES_MOCKED_DATA.filter((g) => {
       /* search string have (partial) match with game`s name */
-      let match = g.name.toLocaleLowerCase().includes(params.search);
+      let match = g.name.toLowerCase().includes(params.search);
+      let optional = true;
+
       /* game`s tag is in query tags */
       if (g.tag && params.tags?.length) {
-        match = match && params.tags.includes(g.tag);
+
+        optional = optional && params.tags.includes(g.tag);
+      } else { /* If no tags selected - no games returned */
+        optional = false;
       }
+
       /* game`s price less-equal query`s (if included in query) */
-      if (params.price) {
-        match = match && g.price <= params.price;
+      if (!params.isMaxed && params.price) {
+
+        optional = optional && g.price <= params.price;
       }
-      return match;
+
+      // console.log('called');
+      return match && optional;
     });
     return of(gamesFound).pipe(take(1));
   }
@@ -60,27 +58,40 @@ export class FakeGamesService {
       search: string;
       tags: GameTagTypes[];
       price: number;
+      isMaxed: boolean;
     }
   ): Observable<GameModel[]> {
+
     const profile: UserModel | undefined = USERS_MOCKED_DATA.find(
       (u) => u.id === userId
     );
     const gamesFound = GAMES_MOCKED_DATA.filter((g) => {
       /* search string have (partial) match with game`s name */
       let match = g.name.toLocaleLowerCase().includes(params.search);
+      let optional = true;
+
       /* game`s tag is in query tags */
       if (g.tag && params.tags?.length) {
-        match = match && params.tags.includes(g.tag);
+
+        optional = optional && params.tags.includes(g.tag);
+      } else { /* If no tags selected - no games returned */
+        optional = false;
       }
+
       /* game`s price less-equal query`s (if included in query) */
-      if (params.price) {
-        match = match && g.price <= params.price;
+      if (!params.isMaxed && params.price) {
+
+        optional = optional && g.price <= params.price;
       }
+
       /* exclude games, user already add */
       if (profile && profile.games) {
+
         match = match && !profile.games.has(g.id);
       }
-      return match;
+      // console.log('called');
+
+      return match && optional;
     });
     return of(gamesFound).pipe(take(1));
   }
@@ -98,10 +109,11 @@ export class FakeGamesService {
     } else {
       games = [];
     }
+    console.log('lib called');
     return of(games).pipe(take(1));
   }
 
-  // get games to add in library for authorized users
+  // get games to add in library for authorized users. No filters
   getGamesFor(userId: number): Observable<GameModel[]> {
     const profile: UserModel | undefined = USERS_MOCKED_DATA.find(
       (u) => u.id === userId

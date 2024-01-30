@@ -55,6 +55,7 @@ export class FakeUsersService {
     } else {
       friends = [];
     }
+    console.log('friends called');
     return of(friends).pipe(take(1));
   }
 

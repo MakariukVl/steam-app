@@ -22,7 +22,7 @@ export class LibraryPageComponent implements OnInit {
     this.isAuthorized = !!authService.signedUser;
     this.signedUser = authService.signedUser;
     this.games$ = this.signedUser
-      ? gamesService.getGamesFor(this.signedUser.id)
+      ? gamesService.getGamesLib(this.signedUser.id)
       : of([]);
   }
 

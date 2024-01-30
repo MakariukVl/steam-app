@@ -8,8 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class RangeSettersComponent implements OnInit {
   isInvalidRange = false;
 
-  @Input() minValue?: number;
-  @Input() maxValue?: number;
+  @Input() minValue?: number | string;
+  @Input() maxValue?: number | string;
   @Output() submitRange = new EventEmitter<{ min: number; max: number }>();
 
   constructor() {}
@@ -22,19 +22,19 @@ export class RangeSettersComponent implements OnInit {
   onSubmit(event: SubmitEvent) {
     event.preventDefault();
     this.submitRange.emit({
-      min: this.minValue ?? 0,
-      max: this.maxValue ?? 100
-    })
+      min: Number(this.minValue) || 0,
+      max: Number(this.maxValue) || 100,
+    });
   }
 
   onChange() {
-    const MIN = this.minValue ?? 0;
-    const MAX = this.maxValue ?? 100;
+    const MIN = Number(this.minValue) || 0;
+    const MAX = Number(this.maxValue) || 100;
 
     if (MIN >= MAX) {
       this.isInvalidRange = true;
       return;
-    } 
+    }
     if (MIN < 0) {
       this.isInvalidRange = true;
       return;

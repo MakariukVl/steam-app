@@ -30,39 +30,41 @@ export class GamesPageComponent implements OnInit {
   ) {
     this.isAuthorized = !!authService.signedUser;
     this.signedUser = authService.signedUser;
-    this.games$ = !!this.signedUser
-      ? gamesService.getGamesFor(this.signedUser.id) //authorized user
-      : gamesService.getGames(); // guest
-    this.search$ = of([]);
     this.filter = {
       searchText: '',
-      tags: new Set<GameTagTypes>(),
+      tags: new Set<GameTagTypes>(['Indie', 'Action', 'Adventure']),
       price: 0,
       isMaxed: false,
     };
+    this.search$ = of([]);
+    this.search$ = this.signedUser
+      ? gamesService.searchGamesFor(this.signedUser.id, {
+          search: this.filter.searchText,
+          tags: [...this.filter.tags],
+          price: this.filter.price,
+          isMaxed: this.filter.isMaxed,
+        }) //authorized user
+      : gamesService.searchGames({
+          search: this.filter.searchText,
+          tags: [...this.filter.tags],
+          price: this.filter.price,
+          isMaxed: this.filter.isMaxed,
+        }); // guest
+    this.search$ = of([]);
+    this.games$ = !!this.signedUser
+      ? gamesService.getGamesFor(this.signedUser.id) //authorized user
+      : gamesService.getGames(); // guest
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.reloadData(); // unexplicit renew this.search$
+  }
 
   onSubmit(search: string) {
     // show search result for non-empty search query
-    this.filter.searchText = search.toLowerCase();
+    this.filter.searchText = search ? search.toLowerCase() : '';
     this.isSearch = true;
-    /* authorized user */
-    if (this.isAuthorized && this.signedUser) {
-      this.search$ = this.gamesService.searchGamesFor(this.signedUser?.id, {
-        search: this.filter.searchText,
-        tags: [...this.filter.tags],
-        price: this.filter.price,
-      });
-    } else {
-      /* guest */
-      this.search$ = this.gamesService.searchGames({
-        search: this.filter.searchText,
-        tags: [...this.filter.tags],
-        price: this.filter.price,
-      });
-    }
+    this.reloadData();
   }
 
   onClick(userId: number) {
@@ -71,9 +73,30 @@ export class GamesPageComponent implements OnInit {
 
   onChecked(checked: boolean, tag: GameTagTypes) {
     if (checked) {
-      this.filter.tags.add('Indie');
+      this.filter.tags.add(tag);
     } else {
-      this.filter.tags.delete('Indie');
+      this.filter.tags.delete(tag);
+    }
+    this.reloadData();
+  }
+
+  reloadData(): void {
+    /* authorized user */
+    if (this.signedUser) {
+      this.search$ = this.gamesService.searchGamesFor(this.signedUser?.id, {
+        search: this.filter.searchText,
+        tags: [...this.filter.tags],
+        price: this.filter.price,
+        isMaxed: this.filter.isMaxed,
+      });
+    } else {
+      /* guest */
+      this.search$ = this.gamesService.searchGames({
+        search: this.filter.searchText,
+        tags: [...this.filter.tags],
+        price: this.filter.price,
+        isMaxed: this.filter.isMaxed,
+      });
     }
   }
 }
